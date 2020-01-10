@@ -1,0 +1,21 @@
+{
+    "name": "aasu",
+    "version": "0.0.0",
+    "main": "aasu.js",
+    "scripts": {
+        "build": "tsc && rollup --config"
+    },
+    "repository": "https://github.com/z-------------/aasu.git",
+    "author": "Zack Guard <zacharyguard@gmail.com>",
+    "license": "MIT",
+    "private": false,
+    "dependencies": {
+        "localforage": "^1.7.3"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^11.0.1",
+        "@rollup/plugin-node-resolve": "^7.0.0",
+        "rollup": "^1.29.0",
+        "typescript": "^3.7.4"
+    }
+}
