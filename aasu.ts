@@ -116,9 +116,7 @@ export async function remove(path: string): Promise<void> {
     if (node.type === NodeType.Inner) {
         const promises = [];
         for (const childKey of node.data) {
-            promises.push(new Promise(resolve => {
-                remove(comp([path, childKey])).then(resolve);
-            }));
+            promises.push(remove(comp([path, childKey])));
         }
         await Promise.all(promises);
     }
