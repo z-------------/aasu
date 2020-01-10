@@ -18,10 +18,6 @@ interface Node {
 class InnerNode implements Node {
     type = NodeType.Inner;
     data: string[];
-
-    append(key: string): void {
-        this.data.push(key);
-    }
 }
 
 class LeafNode implements Node {
