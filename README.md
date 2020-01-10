@@ -30,6 +30,4 @@ bar.baz.qux:
 
 This way, there is no need to read and write an item's entire containing subtree just to get or set the item's properties. For structures with large items or many siblings, this may lead to performance improvements (untested) and just feels better.
 
-## Documentation
-
-[docs.md](docs.md)
+## [Documentation →](https://github.com/z-------------/aasu/wiki/Documentation)

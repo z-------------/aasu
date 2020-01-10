@@ -4,7 +4,7 @@
     "main": "aasu.js",
     "scripts": {
         "build": "tsc && rollup --config",
-        "doc": "typedoc --plugin typedoc-plugin-markdown --out docs --excludeNotExported --hideBreadcrumbs --readme none && cp docs/modules/_aasu_.md docs.md"
+        "doc": "typedoc --plugin typedoc-plugin-markdown --out docs --excludeNotExported --hideBreadcrumbs --readme none && concat-md --decrease-title-levels --dir-name-as-title docs > aasu.wiki/Documentation.md"
     },
     "repository": "https://github.com/z-------------/aasu.git",
     "author": "Zack Guard <zacharyguard@gmail.com>",
@@ -16,7 +16,9 @@
     "devDependencies": {
         "@rollup/plugin-commonjs": "^11.0.1",
         "@rollup/plugin-node-resolve": "^7.0.0",
+        "concat-md": "^0.3.2",
         "rollup": "^1.29.0",
+        "showdown": "^1.9.1",
         "typedoc": "^0.15.7",
         "typedoc-plugin-markdown": "^2.2.16",
         "typescript": "^3.7.4"
