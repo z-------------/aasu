@@ -4,5 +4,8 @@ aasu.bundle.js
 main.js
 index.html
 
+docs
+docs.md
+
 rollup.config.js
 tsconfig.json

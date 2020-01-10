@@ -3,5 +3,7 @@ node_modules
 
 aasu*.js
 
+docs
+
 main.js
 index.html
