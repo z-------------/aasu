@@ -1,6 +1,8 @@
 node_modules
 *.log
 
+.vscode
+
 aasu*.js
 
 docs
