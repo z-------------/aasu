@@ -33,6 +33,20 @@ function comp(frags: string[]): string {
     return frags.join(".");
 }
 
+function arrayBox(items: any[]): [any][] {
+    return items.map(item => [item]);
+}
+
+async function doAll(f: (...args: any[]) => Promise<any>, args: any[][]): Promise<any[]> {
+    if (args.length === 0) return [];
+
+    const promises = [];
+    for (const a of args) {
+        promises.push(f(...a));
+    }
+    return await Promise.all(promises);
+}
+
 /* public */
 
 export async function set(path: string, data: any): Promise<void> {
@@ -71,8 +85,16 @@ export async function set(path: string, data: any): Promise<void> {
     }
 }
 
+export function setAll(pairs: [string, any][]): Promise<void[]> {
+    return doAll(set, pairs);
+}
+
 export async function has(path: string): Promise<boolean> {
     return (await lf.getItem(path) !== null);
+}
+
+export function hasAll(paths: string[]): Promise<boolean[]> {
+    return doAll(has, arrayBox(paths));
 }
 
 export async function list(path: string): Promise<string[] | ReturnType> {
@@ -87,12 +109,20 @@ export async function list(path: string): Promise<string[] | ReturnType> {
     }
 }
 
+export function listAll(paths: string[]): Promise<(string[] | ReturnType)[]> {
+    return doAll(list, arrayBox(paths));
+}
+
 export async function get(path: string): Promise<any> {
     const node: Node = await lf.getItem(path);
 
     if (node === null) return ReturnType.NotFound;
     else if (node.type === NodeType.Inner) return ReturnType.Invalid;
     else if (node.type === NodeType.Leaf) return node.data;
+}
+
+export function getAll(paths: string[]): Promise<any[]> {
+    return doAll(get, arrayBox(paths));
 }
 
 export async function remove(path: string): Promise<void> {
@@ -123,6 +153,10 @@ export async function remove(path: string): Promise<void> {
 
     // remove node
     await lf.removeItem(path);
+}
+
+export function removeAll(paths: string[]): Promise<void[]> {
+    return doAll(remove, arrayBox(paths));
 }
 
 export async function clear(): Promise<void> {
