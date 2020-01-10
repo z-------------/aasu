@@ -18,7 +18,7 @@
 
 ▸ **clear**(): *Promise‹void›*
 
-*Defined in [aasu.ts:130](https://github.com/z-------------/aasu/blob/94b0998/aasu.ts#L130)*
+*Defined in [aasu.ts:130](https://github.com/z-------------/aasu/blob/15125f3/aasu.ts#L130)*
 
 **Returns:** *Promise‹void›*
 
@@ -28,7 +28,7 @@ ___
 
 ▸ **get**(`path`: string): *Promise‹any›*
 
-*Defined in [aasu.ts:90](https://github.com/z-------------/aasu/blob/94b0998/aasu.ts#L90)*
+*Defined in [aasu.ts:90](https://github.com/z-------------/aasu/blob/15125f3/aasu.ts#L90)*
 
 **Parameters:**
 
@@ -44,7 +44,7 @@ ___
 
 ▸ **has**(`path`: string): *Promise‹boolean›*
 
-*Defined in [aasu.ts:74](https://github.com/z-------------/aasu/blob/94b0998/aasu.ts#L74)*
+*Defined in [aasu.ts:74](https://github.com/z-------------/aasu/blob/15125f3/aasu.ts#L74)*
 
 **Parameters:**
 
@@ -60,7 +60,7 @@ ___
 
 ▸ **list**(`path`: string): *Promise‹string[] | ReturnType›*
 
-*Defined in [aasu.ts:78](https://github.com/z-------------/aasu/blob/94b0998/aasu.ts#L78)*
+*Defined in [aasu.ts:78](https://github.com/z-------------/aasu/blob/15125f3/aasu.ts#L78)*
 
 **Parameters:**
 
@@ -76,7 +76,7 @@ ___
 
 ▸ **remove**(`path`: string): *Promise‹void›*
 
-*Defined in [aasu.ts:98](https://github.com/z-------------/aasu/blob/94b0998/aasu.ts#L98)*
+*Defined in [aasu.ts:98](https://github.com/z-------------/aasu/blob/15125f3/aasu.ts#L98)*
 
 **Parameters:**
 
@@ -90,15 +90,15 @@ ___
 
 ###  set
 
-▸ **set**(`path`: string, `data`: Node["data"]): *Promise‹void›*
+▸ **set**(`path`: string, `data`: any): *Promise‹void›*
 
-*Defined in [aasu.ts:38](https://github.com/z-------------/aasu/blob/94b0998/aasu.ts#L38)*
+*Defined in [aasu.ts:38](https://github.com/z-------------/aasu/blob/15125f3/aasu.ts#L38)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `path` | string |
-`data` | Node["data"] |
+`data` | any |
 
 **Returns:** *Promise‹void›*

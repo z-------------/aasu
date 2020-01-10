@@ -35,7 +35,7 @@ function comp(frags: string[]): string {
 
 /* public */
 
-export async function set(path: string, data: Node["data"]): Promise<void> {
+export async function set(path: string, data: any): Promise<void> {
     const frags = decomp(path);
     for (let i = 1, l = frags.length; i <= l; ++i) {
         const partialPath = frags.slice(0, i).join(".");
