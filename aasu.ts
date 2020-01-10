@@ -5,7 +5,7 @@ enum NodeType {
     Leaf,
 }
 
-enum ReturnType {
+export enum ReturnType {
     NotFound = undefined,
     Invalid = null,
 }
