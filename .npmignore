@@ -1,4 +1,5 @@
 .vscode
+pnpm-lock.yaml
 
 aasu.ts
 aasu.bundle.js
