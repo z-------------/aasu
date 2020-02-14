@@ -117,8 +117,21 @@ export async function get(path: string): Promise<any> {
     const node: Node = await lf.getItem(path);
 
     if (node === null) return ReturnType.NotFound;
-    else if (node.type === NodeType.Inner) return ReturnType.Invalid;
     else if (node.type === NodeType.Leaf) return node.data;
+    else if (node.type === NodeType.Inner) {
+        const result = {};
+        const promises = [];
+        for (const key of node.data) {
+            promises.push(new Promise(resolve => {
+                get(`${path}.${key}`).then(value => {
+                    result[key] = value;
+                    resolve();
+                });
+            }));
+        }
+        await Promise.all(promises);
+        return result;
+    }
 }
 
 export function getAll(paths: string[]): Promise<any[]> {
