@@ -4,8 +4,7 @@ pnpm-lock.yaml
 aasu.ts
 aasu.bundle.js
 
-main.js
-index.html
+test.html
 
 docs
 aasu.wiki
