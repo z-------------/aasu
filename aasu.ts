@@ -15,6 +15,10 @@ interface Node {
     data: any;
 }
 
+interface Dictionary {
+    [key: string]: any;
+}
+
 class InnerNode implements Node {
     type = NodeType.Inner;
     data: string[];
@@ -31,6 +35,20 @@ function decomp(path: string): string[] {
 
 function comp(frags: string[]): string {
     return frags.join(".");
+}
+
+function getPathMapping(dict: Dictionary, parentPath = ""): Dictionary {
+    const mapping = {};
+    for (const [key, val] of Object.entries(dict)) {
+        const path = parentPath.length ? comp([parentPath, key]) : key;
+        if (typeof val === "object") {
+            const subMapping = getPathMapping(val, path);
+            Object.assign(mapping, subMapping);
+        } else {
+            mapping[path] = val;
+        }
+    }
+    return mapping;
 }
 
 function arrayBox(items: any[]): [any][] {
@@ -87,6 +105,13 @@ export async function set(path: string, data: any): Promise<void> {
 
 export function setAll(pairs: [string, any][]): Promise<void[]> {
     return doAll(set, pairs);
+}
+
+export async function put(path: string, dict: Dictionary): Promise<void> {
+    const mapping = getPathMapping(dict, path);
+    for (const [path, value] of Object.entries(mapping)) {
+        await set(path, value);
+    }
 }
 
 export async function has(path: string): Promise<boolean> {
