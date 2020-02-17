@@ -1,6 +1,6 @@
 {
     "name": "aasu",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "main": "aasu.js",
     "scripts": {
         "build": "tsc && rollup --config",
