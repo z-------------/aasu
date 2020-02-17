@@ -103,15 +103,15 @@ export async function set(path: string, data: any): Promise<void> {
     }
 }
 
-export function setAll(pairs: [string, any][]): Promise<void[]> {
-    return doAll(set, pairs);
+export async function setAll(dict: Dictionary): Promise<void> {
+    for (const [path, value] of Object.entries(dict)) {
+        await set(path, value);
+    }
 }
 
 export async function put(path: string, dict: Dictionary): Promise<void> {
     const mapping = getPathMapping(dict, path);
-    for (const [path, value] of Object.entries(mapping)) {
-        await set(path, value);
-    }
+    await setAll(mapping);
 }
 
 export async function has(path: string): Promise<boolean> {
