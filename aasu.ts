@@ -15,7 +15,7 @@ interface Node {
     data: any;
 }
 
-interface Dictionary {
+export interface Dictionary {
     [key: string]: any;
 }
 
